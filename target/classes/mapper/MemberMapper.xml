@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  
+<mapper namespace="org.hfs.mapper.MemberMapper">
+
+    <insert id="insertHfs">
+        insert into hfstm(year,   month,  j_amt,    kb_amt,   wr_amt,   sh_amt,   ct_amt,   hn_amt,   nh_amt,   ex_amt,   etc_amt) values
+                       (#{year},#{month},#{j_amt},#{kb_amt},#{wr_amt},#{sh_amt},#{ct_amt},#{hn_amt},#{nh_amt},#{ex_amt},#{etc_amt})
+    </insert>
+ 
+</mapper> 
+

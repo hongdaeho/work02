@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+	
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<!--
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/workdb?serverTimezone=Asia/Seoul;useUnicode=yes&amp;characterEncoding=UTF-8"></property>
+		-->
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/workdb?serverTimezone=Asia/Seoul"></property>
+		<!--
+		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
+		<property name="url" value="jdbc:log4jdbc:mysql://127.0.0.1:3306/spring?useUnicode=yes&amp;characterEncoding=UTF-8"></property>
+		-->
+		<property name="username" value="root"></property>
+		<property name="password" value="root"></property>
+	</bean>
+		
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		 <!-- mybatis-config.xml이 스프링 시작될때 같이 실행되도록 설정하기  -->
+          <property name="configLocation" value="classpath:/mybatis-config.xml"></property>
+	</bean>
+	
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+		
+</beans>

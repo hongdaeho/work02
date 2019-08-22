@@ -2,20 +2,19 @@ drop DATABASE if exists workdb;
 
 create DATABASE workdb default CHARACTER SET = UTF8;
 
-DROP TABLE IF EXISTS `workdb`.`noticeboard`;
+DROP TABLE IF EXISTS `workdb`.`hfstm`;
 CREATE TABLE  `workdb`.`hfstm` (
-  `year`  varchar(4) NOT NULL,
+  `year`  varchar(8) NOT NULL,
   `month` varchar(2) NOT NULL,
-  `j_amt` varchar(45)   NULL,
-  `kb_amt` varchar(45)  NULL,
-  `wr_amt` varchar(45)  NULL,
-  `sh_amt` varchar(45)  NULL,
-  `ct_amt` varchar(45)  NULL,
-  `hn_amt` varchar(45)  NULL,
-  `nh_amt` varchar(45)  NULL,
-  `ex_amt` varchar(45)  NULL,
-  `etc_amt` varchar(45)  NULL,
-  
+  `jamt`  INT NOT NULL,
+  `kbamt` INT NOT NULL,
+  `wramt` INT NOT NULL,
+  `shamt` INT NOT NULL,
+  `ctamt` INT NOT NULL,
+  `hnamt` INT NOT NULL,
+  `nhamt` INT NOT NULL,
+  `examt` INT NOT NULL,
+  `etcamt` INT NOT NULL,
   
   PRIMARY KEY (`year`, `month`)
 ) 

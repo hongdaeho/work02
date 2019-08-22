@@ -18,12 +18,12 @@
     </settings>
     
     <typeAliases>
-      
+      <typeAlias type="org.hfs.domain.HfsVO" alias="hfsVO"/>
     </typeAliases>
  
     <!-- MyBatis mapper 파일이 추가될 때마다 지정해줘야 . -->
     <mappers>
-        <mapper resource="/mapper/MemberMapper.xml"/>
+        <mapper resource="/mapper/HfsMapper.xml"/> 
     </mappers>
     
 </configuration>

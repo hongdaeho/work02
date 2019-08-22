@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  
+<mapper namespace="org.hfs.mapper.HfsMapper"> 
+
+    <insert id="insertHfs">
+        insert into hfstm(year,   month,  jamt,    kbamt,   wramt,   shamt,   ctamt,   hnamt,   nhamt,   examt,   etcamt) values
+                       (#{year},#{month},#{jamt},#{kbamt},#{wramt},#{shamt},#{ctamt},#{hnamt},#{nhamt},#{examt},#{etcamt})
+    </insert>
+    
+    <select id="selectHfs" resultType = "org.hfs.domain.HfsVO" >  
+       select year, month, jamt, kbamt , wramt, shamt, ctamt, hnamt, nhamt, examt, etcamt 
+       from hfstm
+    </select>
+  
+  	<select id="selectHfs001"  resultType = "org.hfs.domain.HfsVO" >  
+       select 
+       year,
+       sum(jamt) jamt,
+       sum(kbamt) kbamt,
+       sum(wramt) wramt,
+       sum(shamt) shamt,
+       sum(ctamt) ctamt,
+       sum(hnamt) hnamt,
+       sum(nhamt) nhamt,
+       sum(examt) examt,
+       sum(etcamt) etcamt
+       from hfstm
+       where 1=1
+       group by year
+    </select>
+  
+    <select id="selectHfs002" parameterType="String"  resultType = "org.hfs.domain.HfsVO3" >  
+       select 
+       year,
+ 	   sum(CASE
+            #{bank_code}
+       WHEN '1' THEN round(jamt/12)
+       WHEN '2' THEN round(kbamt/12) 
+       WHEN '3' THEN round(wramt/12)
+       WHEN '4' THEN round(shamt/12)
+       WHEN '5' THEN round(ctamt/12)
+       WHEN '6' THEN round(hnamt/12)
+       WHEN '7' THEN round(nhamt/12)
+       WHEN '8' THEN round(examt/12)
+       WHEN '9'THEN round(etcamt/12)
+       end
+       ) as amt
+       from hfstm
+       where 1=1
+       group by year
+    </select>
+    
+    <select id="selectHfs003"  resultType = "org.hfs.domain.HfsVO" >  
+       select 
+       year,
+ 	   sum(jamt) as jamt,
+ 	   sum(kbamt) as kbamt,
+ 	   sum(wramt) as wramt,
+ 	   sum(shamt) as shamt,
+ 	   sum(ctamt) as ctamt,
+ 	   sum(hnamt) as hnamt,
+ 	   sum(nhamt) as nhamt,
+ 	   sum(examt) as examt,
+ 	   sum(etcamt) as etcamt,
+ 	   sum(jamt+kbamt+wramt+shamt+ctamt+hnamt+nhamt+examt+etcamt) as sumamt
+       from hfstm
+       where 1=1
+       group by year
+    </select>
+  
+</mapper> 
+

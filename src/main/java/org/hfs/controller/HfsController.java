@@ -46,7 +46,7 @@ public class HfsController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HfsController.class);
 	
-	//업로드
+	//업로드 
 	@RequestMapping(value="upload", method = RequestMethod.POST, produces="text/plain;Charset=UTF-8")
     public void uploadContent(String[] args)  {
 	try {

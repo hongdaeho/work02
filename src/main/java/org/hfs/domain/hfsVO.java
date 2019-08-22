@@ -3,19 +3,19 @@ package org.hfs.domain;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class hfsVO {
-	private String year;  		//년도
-	private String month;		//월
-	private String j_amt;		//주택도시기금
-	private String kb_amt;		//국민은행
-	private String wr_amt;		//우리은행
-	private String sh_amt;		//신한은행
-	private String ct_amt;		//시티은행
-	private String hn_amt;		//하나은행
-	private String nh_amt;		//농협
-	private String ex_amt;		//외환은행
-	private String etc_amt;		//기타은행
-	
+public class HfsVO {
+	private String year = "";  		//년도
+	private String month = "";		//월
+	private int jamt = 0;		//주택도시기금 
+	private int kbamt = 0;		//국민은행
+	private int wramt = 0;		//우리은행
+	private int shamt = 0;		//신한은행
+	private int ctamt = 0;		//시티은행
+	private int hnamt = 0;		//하나은행
+	private int nhamt = 0;		//농협
+	private int examt = 0;		//외환은행
+	private int etcamt = 0;		//기타은행
+	private int sumamt = 0;     //금액합계
 	
 	public String getYear() {
 		return year;
@@ -29,60 +29,71 @@ public class hfsVO {
 	public void setMonth(String month) {
 		this.month = month;
 	}
-	public String getJ_amt() {
-		return j_amt;
+	public int getJamt() {
+		return jamt;
 	}
-	public void setJ_amt(String j_amt) {
-		this.j_amt = j_amt;
+	public void setJamt(int jamt) {
+		this.jamt = jamt;
 	}
-	public String getKb_Amt() {
-		return kb_amt;
+	public int getKbamt() {
+		return kbamt;
 	}
-	public void setKb_Amt(String kb_Amt) {
-		this.kb_amt = kb_Amt; 
+	public void setKbamt(int kbamt) {
+		this.kbamt = kbamt;
 	}
-	public String getWr_amt() {
-		return wr_amt;
+	public int getWramt() {
+		return wramt;
 	}
-	public void setWr_amt(String wr_amt) {
-		this.wr_amt = wr_amt;
+	public void setWramt(int wramt) {
+		this.wramt = wramt;
 	}
-	public String getSh_amt() {
-		return sh_amt;
+	public int getShamt() {
+		return shamt;
 	}
-	public void setSh_amt(String sh_amt) {
-		this.sh_amt = sh_amt;
+	public void setShamt(int shamt) {
+		this.shamt = shamt;
 	}
-	public String getCt_amt() {
-		return ct_amt;
+	public int getCtamt() {
+		return ctamt;
 	}
-	public void setCt_amt(String ct_amt) {
-		this.ct_amt = ct_amt;
+	public void setCtamt(int ctamt) {
+		this.ctamt = ctamt;
 	}
-	public String getHn_amt() {
-		return hn_amt;
+	public int getHnamt() {
+		return hnamt;
 	}
-	public void setHn_amt(String hn_amt) {
-		this.hn_amt = hn_amt;
+	public void setHnamt(int hnamt) {
+		this.hnamt = hnamt;
 	}
-	public String getNh_amt() {
-		return nh_amt;
+	public int getNhamt() {
+		return nhamt;
 	}
-	public void setNh_amt(String nh_amt) {
-		this.nh_amt = nh_amt;
+	public void setNhamt(int nhamt) {
+		this.nhamt = nhamt;
 	}
-	public String getEx_amt() {
-		return ex_amt;
+	public int getExamt() {
+		return examt;
 	}
-	public void setEx_amt(String ex_amt) {
-		this.ex_amt = ex_amt;
+	public void setExamt(int examt) {
+		this.examt = examt;
 	}
-	public String getEtc_amt() {
-		return etc_amt;
+	public int getEtcamt() {
+		return etcamt;
 	}
-	public void setEtc_amt(String etc_amt) {
-		this.etc_amt = etc_amt;
+	public void setEtcamt(int etcamt) {
+		this.etcamt = etcamt;
 	}
+	public int getSumamt() {
+		return sumamt;
+	}
+	public void setSumamt(int sumamt) {
+		this.sumamt = sumamt;
+	}
+	
+	
+	
+	
+	
 	
 	
 
